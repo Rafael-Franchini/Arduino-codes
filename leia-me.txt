@@ -1,0 +1,2 @@
+use estes arquivos como cola para projetos e para 
+entender como os sensores funcionam separadamente e assim poder aplicar em seu projeto
