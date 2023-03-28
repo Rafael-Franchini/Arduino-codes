@@ -14,9 +14,9 @@ void lePortaAnalogica(byte porta, byte posicao, WiFiClient cl);
 String getURLRequest(String *requisicao);
 bool mainPageRequest(String *requisicao);
 
-const byte qtdePinosDigitais = 5;
-byte pinosDigitais[qtdePinosDigitais] = {16          , 5     , 4    ,    0    ,    2    };
-byte modoPinos[qtdePinosDigitais]     = {OUTPUT, OUTPUT, OUTPUT,OUTPUT,OUTPUT,};
+const byte qtdePinosDigitais = 2;
+byte pinosDigitais[qtdePinosDigitais] = { 16    , 5      };
+byte modoPinos[qtdePinosDigitais]     = { OUTPUT, OUTPUT};
 
 
 void setup()
@@ -105,7 +105,7 @@ void loop()
                             client.println("\").checked = Number(this.responseText.substring(valPosIni, valPosFim));");
                             client.println("}");
                         }
-                          
+ 
                         client.println("}}}}");
                         client.println("request.open(\"GET\", \"solicitacao_via_ajax\" + nocache, true);");
                         client.println("request.send(null);");
@@ -115,6 +115,10 @@ void loop()
                         
                         client.println("</head>");
 
+                        client.println("<body onload=\"LeDadosDoArduino()\">");                      //<------ALTERADO                    
+                        client.println("<h1>PORTAS EM FUN&Ccedil;&Atilde;O ANAL&Oacute;GICA</h1>");
+
+                      
                         client.println("<br/>");                        
                         client.println("<h1>PORTAS EM FUN&Ccedil;&Atilde;O DIGITAL</h1>");
                         client.println("<form method=\"get\">");
@@ -140,8 +144,8 @@ void loop()
                         client.println("HTTP/1.1 200 OK");
                         client.println("Content-Type: text/html");
                         client.println("Connection: keep-alive");      
-                        client.println();                     
-                        
+                        client.println();                      
+
                         for (int nL=0; nL < qtdePinosDigitais; nL++) {
                             lePortaDigital(pinosDigitais[nL], nL, client);
                         }

@@ -6,19 +6,15 @@
 const char* ssid = "";
 const char* password = "";
 
-ESP8266WebServer server(80);
+
 
 const int led = 13;
 
+
 void handleRoot() {
   digitalWrite(led, 1);
-
   String textoHTML;
-
   textoHTML = "Ola!! Aqui &eacute; o <b>ESP8266</b> falando! ";
-  textoHTML += "Porta A0: ";
-  textoHTML += analogRead(A0);
-   
   server.send(200, "text/html", textoHTML);
   digitalWrite(led, 0);
 }

@@ -1,8 +1,8 @@
 // definir as variaveis para os pinos utilizados
-int pinoR = 11; // pino utilizado pelo terminal R (vermelho)
-int pinoB = 10; // pino utilizado pelo terminal B (azul)
-int pinoG = 9; // pino utilizado pelo terminal G (Verde)
-#define COMMON_CATODE //define o Led RGB como catodo comum
+int pinoR = 16; // pino utilizado pelo terminal R (vermelho)
+int pinoB = 5; // pino utilizado pelo terminal B (azul)
+int pinoG = 4; // pino utilizado pelo terminal G (Verde)
+#define COMMON_ANODE //define o Led RGB como catodo comum
 void setup(){
 // define os pinos do Led como saida
 pinMode(pinoR, OUTPUT);
@@ -16,18 +16,9 @@ analogWrite(pinoG, verde); // define o brilo do led de acordo com o velor de 've
 analogWrite(pinoB, azul); // define o brilo do led de acordo com o velor de 'azul'
 }
 void loop(){
-setColor(255, 0, 0); // valores para obter a cor vermelha
-delay(1000); // aguarda 1 segundo
-setColor(0, 255, 0); // valores para obter a cor verde
-delay(1000); // aguarda 1 segundo
-setColor(0, 0, 255); // valores para obter a cor azul
-delay(1000); // aguarda 1 segundo
-setColor(255, 255, 0); // valores para obter a cor amarela
-delay(1000); // aguarda 1 segundo
-setColor(255, 0, 220); // valores para obter a cor violeta
-delay(1000); // aguarda 1 segundo
-setColor(150, 200, 255); // valores para obter a cor azul agua
-delay(1000); // aguarda 1 segundo
-setColor(255, 255, 255); // valores para obter um tom de branco
-delay(1000); // aguarda 1 segundo
+    int random=1+(rand()% 256);
+    int random1=1+(rand()% 256);
+    int random2=1+(rand()% 256);
+    setColor(random,random1,random2);
+    delay(1500);
 }

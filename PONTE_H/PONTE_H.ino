@@ -1,15 +1,14 @@
 #define pinBotaoA 5
 #define pinBotaoB 4
 
-#define pinSentido1MotorA 3
-#define pinSentido2MotorA 2
+#define pinSentido1MotorA 9
+#define pinSentido2MotorA 8
 
-#define pinSentido1MotorB 7
-#define pinSentido2MotorB 6
+
 
 byte estadoA = 0;
 bool estadoBotaoA = true;
-bool estadoAntBotaoA = true;
+
 unsigned long delayBotaoA;
 
 byte estadoB = 0;
